@@ -1,16 +1,10 @@
-Feature: login
+Feature: Login functionality
 
-Scenario: Successfull of Login
-Given user is on the login page
-When user enters username and password and click login button
-Then user validate the home page
-
-
-Scenario Outline: Failure of Login
-Given user is on the login page
-When user enters username as "<Username>" and password as "<Password>" and click login button
-Then user validate the home page
-
-Examples:
-|Username|Password|
-|standard_user|secret_sauce1|
+  Scenario: Successful Login with valid phone number and OTP
+    Then The Apollo homepage should be displayed
+    When user clicks on Login icon
+    And user enters valid phone number
+    And user clicks Continue button
+    And user enters the OTP received
+    And user clicks Verify OTP button
+    Then user should be navigated to the Home Page

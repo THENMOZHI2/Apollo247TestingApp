@@ -2,34 +2,30 @@ package com.setup;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.time.Duration;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BaseSteps {
-    // Each thread gets its own WebDriver instance for parallel tests
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    public static void launchBrowser(String browser) {
-        if (browser.equalsIgnoreCase("chrome")) {
-            driver.set(new ChromeDriver());
-        } else if (browser.equalsIgnoreCase("firefox")) {
-            driver.set(new FirefoxDriver());
-        } else {
-            throw new IllegalArgumentException("Browser not supported: " + browser);
-        }
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        getDriver().manage().window().maximize();
-    }
+    public static WebDriver driver;
 
-    public static WebDriver getDriver() {
-        return driver.get();
-    }
+    public static void initializeBrowser(String browser, String url) {
+        if (driver == null) { // Only initialize once
+            if (browser.equalsIgnoreCase("chrome")) {
+                driver = new ChromeDriver(new ChromeOptions());
+            } else if (browser.equalsIgnoreCase("firefox")) {
+                driver = new FirefoxDriver(new FirefoxOptions());
+            } else {
+                throw new IllegalArgumentException("Browser not supported: " + browser);
+            }
 
-    public static void closeBrowser() {
-        if (getDriver() != null) {
-            getDriver().quit();
-            driver.remove();
+            driver.manage().window().maximize();
+            driver.get(url);
         }
     }
 }
+
+
+
+
