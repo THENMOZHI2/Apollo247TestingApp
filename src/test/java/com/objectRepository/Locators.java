@@ -2,34 +2,62 @@ package com.objectRepository;
 
 import org.openqa.selenium.By;
 
-
 public class Locators {
+		
+		// login button
+		public static By login = By.xpath("//span[text()='Login']");
+		
+		// Mobile Number entry
+		public static By mobileNumberEntry = By.xpath("//input[@name='mobileNumber']");
+		
+		// continue button
+		public static By continueButton = By.xpath("//button[contains(text(),'Continue')]");
 
-	 // 🔹 Login Page Locators
-	public static By loginIcon = By.xpath("//span[normalize-space()='Login']");
+		// OTP entry
+		public static By otpentry = By.xpath("//input[@title='Please enter the otp']");
+		
+		// verify button
+		public static By verifybutton = By.xpath("//button[contains(text(), 'Verify')]");
+		
+		//validate login
+		public static By validatelogin = By.xpath("//*[@id=\"loginPopup\"]/img");
+		
+		//mobile field
+		public static By mobilefield = By.xpath("//*[@id=\"fixedHeaderCT\"]/div/div[1]/div[2]/ul/li/div/div/div[2]/div[2]/div[2]/div/p[2]");
+		
+		// invalid message
+		public static By invalidmobileerrormsg = By.xpath("//div[text()='This seems like a wrong number']");
+		
+		// close button
+		public static By closebtn = By.xpath("//span[@class='Rb']");
+		// Login/Popup overlays
+		public static final By modalOverlay = By.cssSelector("div.ProfileNew_modalBackground__tCWPu");
 
-    public static By mobileNumberInput = By.name("mobileNumber");
-    public static By continueBtn = By.xpath("//button[contains(text(),'Continue')]");
-    public static By otpInput = By.xpath("//input[@title='Please enter the otp']");
-    public static By verifyOtpBtn = By.xpath("//button[contains(text(),'Verify')]");
-    
-    // 🔹 Home Page Locators
-    public static By homeLogo = By.cssSelector("img[alt='Online Doctor Consultation & Medicines']");
-    // 🔹 Buy Medicines Page Locators
-    public static final By buyMedicineTab = By.xpath("//a[@href='https://www.apollopharmacy.in']");
-    public static final By buyMedicineHeader = By.xpath("//h1[contains(text(),'Buy Medicines and Essentials')]");
-    public static final By searchBox = By.xpath("//div[@data-placeholder='Search Medicines']");
+		// Buy Medicines page validation
+	    public static By buyMedicinesTab = By.linkText("Buy Medicines");
+	    public static By buyMedicinesTitle = By.xpath("//h1[@class='buyMedicineTitle' and text()='Buy Medicines and Essentials']");
 
-    // Filters (dynamic safe locators)
-    public static final By inStockFilter = By.xpath("//div[normalize-space()='In-stock']");
-    public static final By doloBrandFilter = By.xpath("//label[@for='DOLO']");
+	    // Search box
+	    public static By searchBox = By.xpath("//div[@data-placeholder='Search Medicines']");
+	    public static By searchInput = By.id("searchProduct");
+ // after clicking search box actual input opens
 
-    // Search result validation (generic, not hardcoded count/product)
-    public static final By productResultHeader = By.xpath("//div[contains(@class,'ProductSortSearch_header')]/h3");
+	    // Filters
+	    public static final By FILTER_CHIPS = By.xpath("//div[contains(@class,'FilterSearchMedicine_chipsUI')]");
 
-    // Product Actions
-    public static final By addButton = By.xpath("//button[@aria-label='Add']//span[text()='Add']");
-    public static final By increaseButton = By.xpath("//span[@aria-label='Increase button']");
-    public static final By viewCartButton = By.xpath("//button//span[normalize-space()='View Cart']");
+	    // Product validation
+	    public static By productSearchResult = By.xpath("//h3[contains(@class,'ProductSortSearch_title__aAuhf') and contains(text(),'Paracip-650 Tablet 10')]");
+
+	    // Add button & Quantity increment
+	    public static By addProductButton = By.xpath("(//span[text()='Add'])[1]");
+	    public static By increaseProductQuantity = By.xpath("(//span[@role='button' and @aria-label='Increase button'])[1]");
+
+	    // View cart button
+	    public static By viewCartButton = By.xpath("//button[@aria-label='Button']//span[text()='View Cart']");
+
+  
+
+
 }
+
 

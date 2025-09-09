@@ -1,58 +1,60 @@
-
 package com.stepDefinition;
 
-import com.pages.BuyMedicinePage;
-import com.setup.BaseSteps;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
+
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import com.stepDefinition.Hooks;
+import com.aventstack.extentreports.ExtentTest;
+import com.pages.BuyMedicinePage;
+import com.setup.PropertyReader;
 
 public class BuyMedicineSteps {
-
-    BuyMedicinePage buyMedicinePage = new BuyMedicinePage(BaseSteps.driver);
-
-    @When("user clicks on Buy Medicine tab")
-    public void user_clicks_on_buy_medicine_tab() {
-        buyMedicinePage.clickBuyMedicineTab();
+	BuyMedicinePage buyMedicinePage = Hooks.buymedicinePage;
+   
+	WebDriver driver = Hooks.driver;
+	ExtentTest extTest = Hooks.extTest;
+	static String[][] excelData;
+	Properties prop = PropertyReader.readProperties();
+    @When("user clicks on Buy Medicines tab")
+    public void user_clicks_on_buy_medicines_tab() {
+        buyMedicinePage.clickBuyMedicinesTab(); 
     }
 
-    @Then("Buy Medicines page should be displayed")
-    public void buy_medicines_page_should_be_displayed() {
-        Assert.assertTrue(buyMedicinePage.isBuyMedicineHeaderDisplayed(), "Buy Medicines page not displayed!");
+    @Then("user should see Buy Medicines and Essentials page")
+    public void user_should_see_buy_medicines_and_essentials_page() {
+        Assert.assertTrue(buyMedicinePage.validateBuyMedicinesTitle(), "Buy Medicines page not loaded");
     }
 
-    @When("user searches for {string}")
-    public void user_searches_for(String medicine) {
+    @When("user searches for medicine {string}")
+    public void user_searches_for_medicine(String medicine) {
         buyMedicinePage.searchMedicine(medicine);
     }
 
-    @When("user applies In-stock filter")
-    public void user_applies_in_stock_filter() {
-        buyMedicinePage.applyInStockFilter();
+    @And("user applies in-stock and brand filters")
+    public void user_applies_in_stock_and_brand_filters() {
+        buyMedicinePage.applyFilters();
     }
 
-    @When("user applies Dolo brand filter")
-    public void user_applies_dolo_brand_filter() {
-        buyMedicinePage.applyDoloBrandFilter();
+    @Then("medicine {string} should be available")
+    public void medicine_should_be_available(String medicine) {
+        Assert.assertTrue(buyMedicinePage.validateProductAvailability(), "Product not available: " + medicine);
     }
 
-    @Then("product results should be displayed")
-    public void product_results_should_be_displayed() {
-        Assert.assertTrue(buyMedicinePage.isProductResultDisplayed(), "No product results displayed!");
+    @And("user adds the product to cart and increases quantity by {int}")
+    public void user_adds_the_product_to_cart_and_increases_quantity_by(Integer times) {
+        
+        buyMedicinePage.addProductToCart(times);
     }
 
-    @When("user adds the product to cart")
-    public void user_adds_the_product_to_cart() {
-        buyMedicinePage.clickAddButton();
-    }
-
-    @When("user increases quantity by {int}")
-    public void user_increases_quantity_by(Integer qty) {
-        buyMedicinePage.increaseQuantity(qty);
-    }
-
-    @When("user clicks on View Cart button")
+    @And("user clicks on View Cart button")
     public void user_clicks_on_view_cart_button() {
         buyMedicinePage.clickViewCart();
     }
+  
+    
 }
+
+

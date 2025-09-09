@@ -1,49 +1,75 @@
 package com.stepDefinition;
 
-import com.pages.LoginPage;
-import com.setup.BaseSteps;
-import io.cucumber.java.en.*;
-import org.testng.Assert;
+import java.util.Properties;
 import java.util.Scanner;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.pages.LoginPage;
+import com.parameters.ExcelReader;
+import com.setup.PropertyReader;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 public class LoginSteps {
+	
+	LoginPage loginpage;
+	WebDriver driver = Hooks.driver;
+	ExtentTest extTest = Hooks.extTest;
+	static String[][] excelData;
+	Properties prop = PropertyReader.readProperties();
 
-    LoginPage loginPage = new LoginPage(BaseSteps.driver);
+	
+	@Given("user is on the login page")
+	public void user_is_on_the_login_page() {
+		loginpage = new LoginPage(driver,Hooks.extTest);
+		loginpage.clickloginbutton();
+		
+		if(excelData == null) {
+			excelData = ExcelReader.readdata();
+		}
 
-    @When("user clicks on Login icon")
-    public void user_clicks_on_login_icon() {
-        loginPage.clickLoginIcon();
-    }
+	}
+	@When("the user enter the valid Mobile Number as {string}")
+	public void the_user_enter_the_valid_mobile_number_as(String number) {
+	    number = excelData[0][0];
+		loginpage.entermobilenumber(number);
+	}
+	@When("user request an otp")
+	public void user_request_an_otp() {
+		//loginpage.clickcontinuebutton();
+	    
+	}
+	@When("user enter the otp")
+	public void user_enter_the_otp() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter OTP : ");
+		String otp = scanner.nextLine();
+		loginpage.enterotp(otp);
+	   
+	}
+	@Then("user should be successfully logged in")
+	public void user_should_be_successfully_logged_in() {
+	   loginpage.validatelogin();
+	}
+	
+	@When("the user enter the invalid Mobile Number as {string}")
+	public void the_user_enter_the_invalid_mobile_number_as(String invalidmobile_number) {
+	    invalidmobile_number = excelData[1][0];
+	    loginpage.enterinvalidmobilenumber(invalidmobile_number);
+	    
+	}
+	@Then("an error message is displayed {string}")
+	public void an_error_message_is_displayed(String string) {
+		
+	}
+	@When("the user enter the invalid otp")
+	public void the_user_enter_the_invalid_otp() {
+	   loginpage.enterinvalidotp();
+	}
 
-    @When("user enters valid phone number")
-    public void user_enters_valid_phone_number() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter your phone number: ");
-        String phoneNumber = sc.nextLine();
-        loginPage.enterPhoneNumber(phoneNumber);
-    }
-
-    @When("user clicks Continue button")
-    public void user_clicks_continue_button() {
-        loginPage.clickContinueBtn();
-    }
-
-    @When("user enters the OTP received")
-    public void user_enters_the_otp_received() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter OTP received: ");
-        String otp = sc.nextLine();
-        loginPage.enterOtpFromConsole(otp);
-    }
-
-    @When("user clicks Verify OTP button")
-    public void user_clicks_verify_otp_button() {
-        loginPage.clickVerifyOtpBtn();
-    }
-
-    @Then("user should be navigated to the Home Page")
-    public void user_should_be_navigated_to_the_home_page() {
-        Assert.assertTrue(loginPage.isHomePageDisplayed(), "Home page not displayed after login!");
-    }
 }
-

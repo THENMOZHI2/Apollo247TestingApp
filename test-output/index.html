@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse-873285336\testng-customsuite.xml</span>
+                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse--2133819280\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 2 failed,   2 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,12 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Search and add medicine to cart&quot;, &quot;Buy Medicines functionality&quot;)">runScenario("Search and add medicine to cart", "Buy Medicines functionality")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Successful Login with valid phone number and OTP&quot;, &quot;Login functionality&quot;)">runScenario("Successful Login with valid phone number and OTP", "Login functionality")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Search and add medicine to cart with filters&quot;, &quot;Buy Medicines flow&quot;)">runScenario("Search and add medicine to cart with filters", "Buy Medicines flow")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -122,12 +117,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Verify Apollo 24/7 launches in supported browsers&quot;, &quot;Apollo 24/7 Website Launch&quot;)">runScenario("Verify Apollo 24/7 launches in supported browsers", "Apollo 24/7 Website Launch")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Launching the browser successfully&quot;, &quot;Launching the browser&quot;)">runScenario("Launching the browser successfully", "Launching the browser")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Verify Apollo 24/7 launches in supported browsers&quot;, &quot;Apollo 24/7 Website Launch&quot;)">runScenario("Verify Apollo 24/7 launches in supported browsers", "Apollo 24/7 Website Launch")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Login successfully&quot;, &quot;Login&quot;)">runScenario("Login successfully", "Login")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -150,57 +145,80 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Search and add medicine to cart&quot;, &quot;Buy Medicines functionality&quot;)">
-                  </a> <!-- runScenario("Search and add medicine to cart", "Buy Medicines functionality") -->
+                  <a name="runScenario(&quot;Search and add medicine to cart with filters&quot;, &quot;Buy Medicines flow&quot;)">
+                  </a> <!-- runScenario("Search and add medicine to cart with filters", "Buy Medicines flow") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Search and add medicine to cart","Buy Medicines functionality")</span>
-                  <div class="stack-trace">org.openqa.selenium.InvalidElementStateException: invalid element state
-  (Session info: chrome=139.0.7258.155)
-Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [7b403239cef12ba81fb6b588ed982f0e, clearElement {id=f.A02A594BEE2EBE423A95DF343AD9AF51.d.F0AB1BD1FB5B5399BD3345C087FA7863.e.2350}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58841}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58841/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (7b403239cef12ba81fb6b588ed982f0e)] -&gt; xpath: //div[@data-placeholder=&apos;Search Medicines&apos;]]
-Session ID: 7b403239cef12ba81fb6b588ed982f0e
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:129)
-	at com.pages.BuyMedicinePage.searchMedicine(BuyMedicinePage.java:42)
-	at com.stepDefinition.BuyMedicineSteps.user_searches_for(BuyMedicineSteps.java:26)
-	at ✽.user searches for &quot;Paracip-650 Tablet 10&apos;s&quot;(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/features/BuyMedicine.feature:6)
+                  <span class="parameters">("Search and add medicine to cart with filters","Buy Medicines flow")</span>
+                  <div class="stack-trace">io.cucumber.testng.UndefinedStepException: The step &apos;user should see the My cart page&apos; and 12 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
 
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Successful Login with valid phone number and OTP&quot;, &quot;Login functionality&quot;)">
-                  </a> <!-- runScenario("Successful Login with valid phone number and OTP", "Login functionality") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Successful Login with valid phone number and OTP","Login functionality")</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //button[contains(text(),&apos;Continue&apos;)] (tried for 20 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.155, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58841}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58841/devtoo..., se:cdpVersion: 139.0.7258.155, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 7b403239cef12ba81fb6b588ed982f0e
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.pages.LoginPage.clickContinueBtn(LoginPage.java:35)
-	at com.stepDefinition.LoginSteps.user_clicks_continue_button(LoginSteps.java:28)
-	at ✽.user clicks Continue button(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/features/profile.feature:7)
+@Then(&quot;user should see the My cart page&quot;)
+public void user_should_see_the_my_cart_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user clicks on chnage address&quot;)
+public void user_clicks_on_chnage_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user should see the Deliver To Tab&quot;)
+public void user_should_see_the_deliver_to_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user clicks on the Add new Address&quot;)
+public void user_clicks_on_the_add_new_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user enter the valid pincode and select the pincode&quot;)
+public void user_enter_the_valid_pincode_and_select_the_pincode() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user should see enter address details&quot;)
+public void user_should_see_enter_address_details() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user enter the house number and clicks save and next&quot;)
+public void user_enter_the_house_number_and_clicks_save_and_next() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user fill the recipient details&quot;)
+public void user_fill_the_recipient_details() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user clicks the save address&quot;)
+public void user_clicks_the_save_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user clicks proceed and again clicks proceed&quot;)
+public void user_clicks_proceed_and_again_clicks_proceed() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user should see the Delivery Type Tab&quot;)
+public void user_should_see_the_delivery_type_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user clicks proceed&quot;)
+public void user_clicks_proceed() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then(&quot;user should see the payments tab&quot;)
+public void user_should_see_the_payments_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.user should see the My cart page(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/3_BuyMedicine.feature:11)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -217,20 +235,20 @@ Session ID: 7b403239cef12ba81fb6b588ed982f0e
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify Apollo 24/7 launches in supported browsers&quot;, &quot;Apollo 24/7 Website Launch&quot;)">
-                  </a> <!-- runScenario("Verify Apollo 24/7 launches in supported browsers", "Apollo 24/7 Website Launch") -->
+                  <a name="runScenario(&quot;Launching the browser successfully&quot;, &quot;Launching the browser&quot;)">
+                  </a> <!-- runScenario("Launching the browser successfully", "Launching the browser") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify Apollo 24/7 launches in supported browsers","Apollo 24/7 Website Launch")</span>
+                  <span class="parameters">("Launching the browser successfully","Launching the browser")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify Apollo 24/7 launches in supported browsers&quot;, &quot;Apollo 24/7 Website Launch&quot;)">
-                  </a> <!-- runScenario("Verify Apollo 24/7 launches in supported browsers", "Apollo 24/7 Website Launch") -->
+                  <a name="runScenario(&quot;Login successfully&quot;, &quot;Login&quot;)">
+                  </a> <!-- runScenario("Login successfully", "Login") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify Apollo 24/7 launches in supported browsers","Apollo 24/7 Website Launch")</span>
+                  <span class="parameters">("Login successfully","Login")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -240,7 +258,7 @@ Session ID: 7b403239cef12ba81fb6b588ed982f0e
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse-873285336\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse--2133819280\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -297,28 +315,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(0, 3, 33492);
+data.setCell(0, 3, 36286);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(1, 3, 3232);
+data.setCell(1, 3, 23575);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(2, 3, 65);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'runScenario')
-data.setCell(3, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(3, 3, 54);
+data.setCell(2, 3, 1791);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 36 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -346,32 +360,26 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.runner.TestRunnerTestNG</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@35eb4a3b)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@685d7ba5)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("Search and add medicine to cart", "Buy Medicines functionality")</span>
-                <span class="method-start">8015 ms</span>
+                <span class="method-name">runScenario("Launching the browser successfully", "Launching the browser")</span>
+                <span class="method-start">8262 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify Apollo 24/7 launches in supported browsers", "Apollo 24/7 Website Launch")</span>
-                <span class="method-start">11262 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">runScenario("Verify Apollo 24/7 launches in supported browsers", "Apollo 24/7 Website Launch")</span>
-                <span class="method-start">11330 ms</span>
+                <span class="method-name">runScenario("Login successfully", "Login")</span>
+                <span class="method-start">10060 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("Successful Login with valid phone number and OTP", "Login functionality")</span>
-                <span class="method-start">11386 ms</span>
+                <span class="method-name">runScenario("Search and add medicine to cart with filters", "Buy Medicines flow")</span>
+                <span class="method-start">46351 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">44889 ms</span>
+                <span class="method-start">69984 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
