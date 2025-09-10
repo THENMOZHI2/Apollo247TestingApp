@@ -4,7 +4,7 @@ import java.util.Properties;
 import java.util.Scanner;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.pages.LoginPage;
@@ -36,7 +36,8 @@ public class LoginSteps {
 	}
 	@When("the user enter the valid Mobile Number as {string}")
 	public void the_user_enter_the_valid_mobile_number_as(String number) {
-	    number = excelData[0][0];
+		int row = Hooks.firstrow;
+	    number = excelData[row][0];
 		loginpage.entermobilenumber(number);
 	}
 	@When("user request an otp")
@@ -46,10 +47,7 @@ public class LoginSteps {
 	}
 	@When("user enter the otp")
 	public void user_enter_the_otp() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter OTP : ");
-		String otp = scanner.nextLine();
-		loginpage.enterotp(otp);
+		loginpage.enterotp();
 	   
 	}
 	@Then("user should be successfully logged in")
@@ -59,7 +57,8 @@ public class LoginSteps {
 	
 	@When("the user enter the invalid Mobile Number as {string}")
 	public void the_user_enter_the_invalid_mobile_number_as(String invalidmobile_number) {
-	    invalidmobile_number = excelData[1][0];
+		int row = Hooks.firstrow;
+	    invalidmobile_number = excelData[1][row];
 	    loginpage.enterinvalidmobilenumber(invalidmobile_number);
 	    
 	}

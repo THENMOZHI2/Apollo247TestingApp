@@ -2,38 +2,35 @@ package com.setup;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.io.FileHandler;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import org.apache.commons.io.FileUtils;
 
 public class Reporter {
 
-    public static void generateReport(WebDriver driver, ExtentTest test, Status status, String stepName) {
+    public static void generateReport(WebDriver driver, ExtentTest test, Status status, String message) {
         try {
-            // Take screenshot
-            TakesScreenshot ts = (TakesScreenshot) driver;
-            File src = ts.getScreenshotAs(OutputType.FILE);
+            if (driver != null) {
+                File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                String path = "reports/screenshots/" + System.currentTimeMillis() + ".png";
+                File dest = new File(path);
+                FileHandler.createDir(new File("reports/screenshots/"));
+                FileHandler.copy(src, dest);
 
-            // File name with timestamp
-            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String screenshotPath = System.getProperty("user.dir") + "/screenshots/" + stepName + "_" + timestamp + ".png";
-
-            File dest = new File(screenshotPath);
-            FileUtils.copyFile(src, dest);
-
-            // Log in Extent report with screenshot
-            test.log(status, stepName);
-            test.addScreenCaptureFromPath(screenshotPath);
-
+                test.log(status, message).addScreenCaptureFromPath(path);
+            } else {
+                test.log(status, message + " (⚠️ no driver available)");
+            }
+        } catch (NoSuchWindowException e) {
+            test.log(status, message + " (⚠️ browser already closed, no screenshot)");
         } catch (IOException e) {
-            e.printStackTrace();
+            test.log(status, message + " (⚠️ screenshot save failed: " + e.getMessage() + ")");
+        } catch (Exception e) {
+            test.log(status, message + " (⚠️ unexpected error: " + e.getMessage() + ")");
         }
     }
 }
+
