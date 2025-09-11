@@ -7,6 +7,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -154,15 +155,27 @@ public class AddressDetails {
     // Click skip savings button
     public void clickSkipSavings() {
         try {
-            List<WebElement> skipButtons = driver.findElements(Locators.skipSavingsBtn);
-            if (!skipButtons.isEmpty() && skipButtons.get(0).isDisplayed()) {
-                scrollAndClick(skipButtons.get(0));
-                Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Skip Savings button");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            WebElement skipBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.skipSavingsBtn));
+
+            // Scroll and JS fallback
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", skipBtn);
+            try {
+                skipBtn.click();
+            } catch (ElementClickInterceptedException e) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", skipBtn);
             }
+
+            // ✅ Wait for Upload Prescription tab after click
+            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.uploadPrescriptionHeader ));
+
+            Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Skip Savings and navigated to Upload Prescription");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to click Skip Savings button: " + e.getMessage());
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to click Skip Savings - " + e.getMessage());
+            throw e; // rethrow so Cucumber marks this step as failed
         }
     }
+
 
     // Validate Upload Prescription tab
     public void validateUploadPrescriptionTab() {

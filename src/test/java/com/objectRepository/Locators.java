@@ -118,8 +118,7 @@ public class Locators {
 	 // Proceed and Skip Savings buttons
 	    public static By firstProceedBtn = By.xpath("//button[@aria-label='Button']//span[text()='PROCEED']");
 	    public static By secondProceedBtn = By.xpath("//button[@aria-label='Button']//span[text()='Proceed']");
-	    public static By skipSavingsBtn = By.xpath("//button[contains(text(),'Skip Savings')]");
-
+	    public static By skipSavingsBtn =By.xpath("//button[.//span[normalize-space()='Skip Savings']]");
 	    public static By ThirdProceedBtn = By.xpath("//button[.//span[text()='PROCEED']]");
 
 	    // 2. Upload Prescription tab validation
@@ -129,7 +128,7 @@ public class Locators {
 	    public static By continueWithoutPrescriptionSelected = By.xpath("//header[contains(@class,'WithoutPrescription_selected__')]");
 
 	    // 4. Add Patient button
-	    public static By addPatientBtn = By.xpath("//button[contains(@class,'WithoutPrescription_ctsBx__')]//span[contains(text(),'+Add Patient Name')]");
+	    public static By addPatientBtn =By.xpath("//button//span[contains(.,'Add Patient Name')]");
 
 	    // 5. Add New Family Member form title
 	    public static By addNewFamilyMemberHeader = By.xpath("//h2[contains(text(),'Add New Family Member')]");
@@ -155,19 +154,19 @@ public class Locators {
 	    public static By relationDaughterOption = By.xpath("//li[.//span[text()='DAUGHTER']]");
 
 	    // 12. Save button
-	    public static By saveBtn = By.xpath("//button[.//span[text()='Save']]");
+	    public static By saveBtn = By.xpath("//button[span[normalize-space(text())='Save']]");
 
 	    // 13. Confirm button
-	    public static By confirmBtn = By.xpath("//button[.//span[text()='CONFIRM']]");
+	    public static By confirmBtn = By.xpath("//button[span[normalize-space(text())='CONFIRM']]");
 
 	    // 14. Proceed button (first one)
-	    public static By proceedBtn1 = By.xpath("//button[.//span[text()='Proceed']]");
+	    public static By proceedBtn1 = By.xpath("(//button[normalize-space(span)='Proceed'])[1]");
 
 	    // 15. Proceed button (second one – has extra class 'L__ bB')
-	    public static By proceedBtn2 = By.xpath("//button[contains(@class,'L__') and .//span[text()='Proceed']]");
+	    public static By proceedBtn2 = By.xpath("//button[span[normalize-space(text())='Proceed']]");
 
 	    // 16. Payments tab title validation
-	    public static By paymentsHeader = By.xpath("//h2[contains(text(),'Payments')]");
+	    public static By paymentsTab = By.xpath("//div[text()='Payments']");
 
 
 

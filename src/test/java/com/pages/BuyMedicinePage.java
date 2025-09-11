@@ -24,16 +24,29 @@ public class BuyMedicinePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    // ✅ Click Buy Medicines Tab
+ // ✅ Click Buy Medicines Tab with scroll + JS fallback
     public void clickBuyMedicinesTab() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(Locators.buyMedicinesTab)).click();
-            Thread.sleep(2000);
+            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(Locators.buyMedicinesTab));
+
+            // Scroll into view
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+            // Wait until clickable
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+
+            try {
+                element.click();
+            } catch (ElementClickInterceptedException e) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+            }
+
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked on Buy Medicines tab");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to click Buy Medicines tab");
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to click Buy Medicines tab - " + e.getMessage());
         }
     }
+
 
     
  // 
@@ -51,18 +64,25 @@ public class BuyMedicinePage {
     }
 
 
-    // ✅ Search for Medicine
+ // ✅ Search for Medicine
     public void searchMedicine(String medicineName) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(Locators.searchBox)).click();
-            WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.searchInput));
+
+            // Small pause to allow animation / input load
+            Thread.sleep(1000);
+
+            WebElement input = wait.until(ExpectedConditions.elementToBeClickable(Locators.searchInput));
+            input.clear();
             input.sendKeys(medicineName);
             input.sendKeys(Keys.ENTER);
+
             Reporter.generateReport(driver, extTest, Status.PASS, "Searched for medicine: " + medicineName);
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to search for medicine: " + medicineName);
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to search for medicine: " + medicineName + " - " + e.getMessage());
         }
     }
+
     public boolean isMedicineNotFoundMessageDisplayed() {
         try {
             WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(

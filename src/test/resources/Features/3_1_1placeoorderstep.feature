@@ -21,7 +21,6 @@ Scenario: Search and add medicine to cart with filters
   Then user should see the upload prescription tab
   And user clicks Add patient button
   And user fill the patient form details
-  And user clicks save button  and confirm button
   And user clicks  proceed(first one) and proceed(second one)
   Then user should see the payments tab 
   

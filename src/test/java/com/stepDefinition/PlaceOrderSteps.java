@@ -199,28 +199,59 @@ public class PlaceOrderSteps {
     }
 
     @And("user fill the patient form details")
-    public void user_fill_the_patient_form_details() {
+    public void user_fill_the_patient_form_details() throws Exception {
         prescriptionpage.fillPatientForm();
     }
 
-    @And("user clicks save button and confirm button")
-    public void user_clicks_save_button_and_confirm_button() {
-        prescriptionpage.saveAndConfirm();
-    }
-
-    @And("user clicks proceed(first one) and proceed(second one)")
+   
+   
+    
+    
+    @Then("user clicks  proceed\\(first one) and proceed\\(second one)")
     public void user_clicks_proceed_first_one_and_proceed_second_one() {
-        prescriptionpage.proceed();
-    }
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
+            // Proceed (first one)
+            WebElement proceed1 = wait.until(ExpectedConditions.elementToBeClickable(Locators. proceedBtn1));
+            proceed1.click();
+
+            // Proceed (second one)
+            WebElement proceed2 = wait.until(ExpectedConditions.elementToBeClickable(Locators. proceedBtn2));
+            proceed2.click();
+
+            Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Proceed (first & second) successfully");
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to click Proceed buttons - " + e.getMessage());
+            throw e;
+        }
+    }
     @Then("user should see the payments tab")
     public void user_should_see_the_payments_tab() {
-        boolean isVisible = paymentpage.isPaymentTabDisplayed();
-        Assert.assertTrue(isVisible, "Payments tab is not visible");
+        try {
+            // Use locator from Locators class
+            WebElement paymentsTab = new WebDriverWait(driver, Duration.ofSeconds(20))
+                    .until(ExpectedConditions.visibilityOfElementLocated(Locators.paymentsTab));
+            
+            // Use isDisplayed() to verify
+            if (paymentsTab.isDisplayed()) {
+                System.out.println("Payments tab is visible");
+            } else {
+                System.out.println("Payments tab is NOT visible");
+            }
+        } catch (Exception e) {
+            System.out.println("Payments tab not found: " + e.getMessage());
+            throw e;
+        }
     }
 
 
 
+
+
+
+
+    
     
    
    

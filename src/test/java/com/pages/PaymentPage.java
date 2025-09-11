@@ -20,6 +20,6 @@ public class PaymentPage {
 	    }
 
     public boolean isPaymentTabDisplayed() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.paymentsHeader)).isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.paymentsTab)).isDisplayed();
   }
 }
