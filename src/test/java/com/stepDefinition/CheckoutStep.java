@@ -10,7 +10,7 @@ public class CheckoutStep extends Base {
     WebDriver driver = getDriver();
     ProfilePage profilePage =Hooks.profilepage;
 
-    @When("user clicks first proceed button")
+    /*@When("user clicks first proceed button")
     public void user_clicks_first_proceed_button() {
         profilePage.clickFirstProceed();
     }
@@ -24,4 +24,5 @@ public class CheckoutStep extends Base {
     public void user_should_see_the_payments_tab() {
         profilePage.validatePatientAdded(); // This already asserts Payments tab is visible
     }
+}*/
 }

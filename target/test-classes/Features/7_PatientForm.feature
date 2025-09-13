@@ -7,7 +7,7 @@ And user clicks skip savings
 Then user should see the upload prescription tab
 And user clicks Add patient button
 When the user enters the invalid first name as "<invalidfirstname>"
-When the user enters the invalid first name as "<invalidLastname>"
+When the user enters the invalid last name as "<invalidLastname>"
 When the user enters the invalid dob as "<invaliddob>"
 When the user enters the invalid email as "<invalidemail>"
 

@@ -42,9 +42,21 @@ public class MedicineSearchSteps {
 
     @When("user searches for a medicine from test data marked as out of stock")
     public void user_searches_for_a_medicine_from_test_data_marked_as_out_of_stock() {
-        medicineName = testData[1][2];  // Row 5 → out of stock medicine
+        // Pick the last non-empty medicine name from the Excel data
+        for (int i = testData.length - 1; i >= 0; i--) {
+            if (testData[i][2] != null && !testData[i][2].trim().isEmpty()) {
+                medicineName = testData[i][2].trim();
+                break;
+            }
+        }
+
+        // Normalize (remove non-breaking spaces)
+        medicineName = medicineName.replace("\u00A0", " ").trim();
+
+        System.out.println("Out of stock medicine from Excel: " + medicineName);
         medicineSearchPage.enterMedicineInSearchBox(medicineName, Hooks.extTest);
     }
+
     @And("user applies the {string} filter")
     public void user_applies_the_filter(String filter) {
         medicineSearchPage.applyFilters(filter, Hooks.extTest);
@@ -101,6 +113,12 @@ public class MedicineSearchSteps {
              Assert.fail("Button not implemented: " + string);
          }
     }
+    @When("user clicks add items in my cart")
+    public void user_clicks_add_items_in_my_cart() {
+        medicineSearchPage.clickAddItems();
+    }
+   
+
     
 
 

@@ -1,26 +1,21 @@
 package com.stepDefinition;
 
 import com.pages.ProfilePage;
-import com.parameters.ExcelReader;
-import com.setup.Base;
+
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebDriver;
 
-public class ProfileStep extends Base {
+public class ProfileStep {
 
-    WebDriver driver = getDriver();
-    ProfilePage profilePage =Hooks.profilepage;
+    ProfilePage profilePage = Hooks.profilepage;
 
-    // Load Excel data once
-    static String[][] data = ExcelReader.readdata();
+    // ==================== Navigation Steps ====================
 
-    // === Negative Scenario ===
     @When("user clicks first proceed button")
     public void user_clicks_first_proceed_button() {
         profilePage.clickFirstProceed();
     }
 
-    @When("user clicks Second proceed button")
+    @When("user clicks second proceed button")
     public void user_clicks_second_proceed_button() {
         profilePage.clickSecondProceed();
     }
@@ -35,34 +30,35 @@ public class ProfileStep extends Base {
         profilePage.validateUploadPrescription();
     }
 
-    @And("user clicks Add patient button")
+    @Then("user clicks Add patient button")
     public void user_clicks_add_patient_button() {
         profilePage.clickAddPatient();
     }
 
-    @When("the user enters invalid data from excel row {int}")
-    public void the_user_enters_invalid_data_from_excel_row(Integer rowIndex) {
-        String fname = data[rowIndex][3];
-        String lname = data[rowIndex][4];
-        String dob   = data[rowIndex][5];
+    // ==================== Valid Input Flow ====================
 
-        profilePage.enterInvalidFirstName(fname);
-        profilePage.enterInvalidLastName(lname);
-        profilePage.enterInvalidDOB(dob);
-        profilePage.enterInvalidEmail("@@@@");  // Hardcoded invalid email
+    @When("the user enters the first name as {string}")
+    public void the_user_enters_the_first_name_as(String fname) {
+        profilePage.enterFirstName(fname);
     }
 
-    // === Positive Scenario ===
-    @When("the user enters valid data from excel row {int}")
-    public void the_user_enters_valid_data_from_excel_row(Integer rowIndex) {
-        String fname = data[rowIndex][3];
-        String lname = data[rowIndex][4];
-        String dob   = data[rowIndex][5];
-
-        profilePage.enterFirstName(fname);
+    @When("the user enters the last name as {string}")
+    public void the_user_enters_the_last_name_as(String lname) {
         profilePage.enterLastName(lname);
+    }
+
+    @When("the user enters the dob as {string}")
+    public void the_user_enters_the_dob_as(String dob) {
         profilePage.enterDOB(dob);
+    }
+
+    @When("the user choose the gender")
+    public void the_user_choose_the_gender() {
         profilePage.chooseGender();
+    }
+
+    @When("the user choose the relation")
+    public void the_user_choose_the_relation() {
         profilePage.chooseRelation();
     }
 
@@ -75,4 +71,27 @@ public class ProfileStep extends Base {
     public void the_new_patient_is_added_successfully() {
         profilePage.validatePatientAdded();
     }
+
+    // ==================== Invalid Input Flow ====================
+
+    @When("the user enters the invalid first name as {string}")
+    public void the_user_enters_the_invalid_first_name_as(String invalidFirstName) {
+        profilePage.enterInvalidFirstName(invalidFirstName);
+    }
+
+    @When("the user enters the invalid last name as {string}")
+    public void the_user_enters_the_invalid_last_name_as(String invalidLastName) {
+        profilePage.enterInvalidLastName(invalidLastName);
+    }
+
+    @When("the user enters the invalid dob as {string}")
+    public void the_user_enters_the_invalid_dob_as(String invalidDob) {
+        profilePage.enterInvalidDOB(invalidDob);
+    }
+
+    @When("the user enters the invalid email as {string}")
+    public void the_user_enters_the_invalid_email_as(String invalidEmail) {
+        profilePage.enterInvalidEmail(invalidEmail);
+    }
 }
+

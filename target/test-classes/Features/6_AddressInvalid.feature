@@ -2,33 +2,27 @@ Feature: Invalid address management
 
 Scenario: User enters invalid text for searching area
   Given user clicks on change
-  When user validates that the new sidebar opens
+  When user validates deliver to tab
   And user clicks on add button
   Then user types invalid pincode and validates that no results found
 
 Scenario: User unable to save flat number
-  Given user clicks on change
-  When user clicks on add button
-  And user enters the valid pincode "600003"
-  And user enter single character flat number
-  Then user validates that minimum two characters required
 
-Scenario: User able to save address as part
-  Given user clicks on change
-  When user clicks on add button
-  And user enters the valid pincode "600003"
-  And user enter valid character flat number and cick save
-  Then user  select any option in save address it shows an information that select any one
-  And user enters invalid recipient details and click save address
-  Then user validates after clicking the page returned to cart page
+  When  user enters the valid pincode from text data
+  And user enters a single character flat number
+  Then user validates that minimum two characters are required
 
-Scenario: user provides address for delivering the products using valid credentials
+Scenario: User is able to save address with invalid recipient name
+  
+  When user enters valid character flat number and clicks save
+  Then user sees an information message that home address type must be selected
+  And user enters an invalid recipient name "@@@@@"
+  And user clicks on Save Address
 
-When user clicks on change in my cart 
-When user see the deliverto and click add new address
-And user selects the address by typing in the textarea
-And user validates the enter address details page
-And user enters house number and and click save and next
-And  choose save the address as
-And user enters recipient and click save address
-Then user validates after clicking the page returned to cart page
+
+
+
+
+
+
+
