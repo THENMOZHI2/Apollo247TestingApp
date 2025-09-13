@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="16" passed="0" failed="16" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-11T10:38:06 IST" name="Default suite" finished-at="2025-09-11T10:40:05 IST" duration-ms="119822">
+  <suite started-at="2025-09-13T18:04:58 IST" name="Default suite" finished-at="2025-09-13T18:05:39 IST" duration-ms="41349">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-09-11T10:38:06 IST" name="Default test" finished-at="2025-09-11T10:40:05 IST" duration-ms="119822">
+    <test started-at="2025-09-13T18:04:58 IST" name="Default test" finished-at="2025-09-13T18:05:39 IST" duration-ms="41349">
       <class name="com.runner.TestRunnerTestNG">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-11T10:38:06 IST" name="setUpClass" finished-at="2025-09-11T10:38:14 IST" duration-ms="7933" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:04:58 IST" name="setUpClass" finished-at="2025-09-13T18:05:03 IST" duration-ms="5486" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@6728370a]]>
+                <![CDATA[org.testng.TestRunner@407b8435]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-11T10:38:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-11T10:38:17 IST" duration-ms="3775" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:03 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:04 IST" duration-ms="128" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,10 +34,55 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.core.runner.DuplicateStepDefinitionException">
+            <message>
+              <![CDATA[Duplicate step definitions in com.stepDefinition.AddressInvalidStep.user_validates_return_to_cart_page() and com.stepDefinition.AddressValidStep.user_validates_returned_to_cart_page()]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.core.runner.DuplicateStepDefinitionException: Duplicate step definitions in com.stepDefinition.AddressInvalidStep.user_validates_return_to_cart_page() and com.stepDefinition.AddressValidStep.user_validates_returned_to_cart_page()
+at io.cucumber.core.runner.CachingGlue.lambda$prepareGlue$3(CachingGlue.java:313)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at io.cucumber.core.runner.CachingGlue.prepareGlue(CachingGlue.java:307)
+at io.cucumber.core.runner.Runner.runPickle(Runner.java:73)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.core.runner.DuplicateStepDefinitionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-11T10:38:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-11T10:39:12 IST" duration-ms="55098" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:05 IST" duration-ms="1541" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -50,10 +95,346 @@
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user is on the login page' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user is on the login page")
+public void user_is_on_the_login_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enter the valid Mobile Number as {string}")
+public void the_user_enter_the_valid_mobile_number_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user request an otp")
+public void user_request_an_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the otp")
+public void user_enter_the_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be successfully logged in")
+public void user_should_be_successfully_logged_in() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user is on the login page' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user is on the login page")
+public void user_is_on_the_login_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enter the valid Mobile Number as {string}")
+public void the_user_enter_the_valid_mobile_number_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user request an otp")
+public void user_request_an_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter the otp")
+public void user_enter_the_otp() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be successfully logged in")
+public void user_should_be_successfully_logged_in() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user is on the login page(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/2_Login_ValidphoneOtp.feature:16)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-11T10:39:12 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-11T10:40:04 IST" duration-ms="51253" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:06 IST" duration-ms="453" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Buy Medicines tab opens successfully"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Buy Medicines Tab"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user clicks on Buy Medicines tab' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks on Buy Medicines tab")
+public void user_clicks_on_buy_medicines_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see Buy Medicines and Essentials page")
+public void user_should_see_buy_medicines_and_essentials_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user clicks on Buy Medicines tab' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks on Buy Medicines tab")
+public void user_clicks_on_buy_medicines_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see Buy Medicines and Essentials page")
+public void user_should_see_buy_medicines_and_essentials_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user clicks on Buy Medicines tab(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/3_BuyMedicineTab.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:06 IST" duration-ms="450" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search with a very long medicine name"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Medicine Search Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'the user enters numeric value  in the search box' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters numeric value  in the search box")
+public void the_user_enters_numeric_value_in_the_search_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display an error message")
+public void the_system_should_display_an_error_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'the user enters numeric value  in the search box' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters numeric value  in the search box")
+public void the_user_enters_numeric_value_in_the_search_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display an error message")
+public void the_system_should_display_an_error_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.the user enters numeric value  in the search box(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/4_InvalidMedicineSearch.feature:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:07 IST" duration-ms="331" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search with invalid characters"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Medicine Search Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'the user enters special characters in the search box' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters special characters in the search box")
+public void the_user_enters_special_characters_in_the_search_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display an error message")
+public void the_system_should_display_an_error_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'the user enters special characters in the search box' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters special characters in the search box")
+public void the_user_enters_special_characters_in_the_search_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display an error message")
+public void the_system_should_display_an_error_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.the user enters special characters in the search box(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/4_InvalidMedicineSearch.feature:10)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:07 IST" duration-ms="399" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search for a medicine that is out of stock"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Medicine Search Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user searches for a medicine from test data marked as out of stock' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user searches for a medicine from test data marked as out of stock")
+public void user_searches_for_a_medicine_from_test_data_marked_as_out_of_stock() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user applies the {string} filter")
+public void user_applies_the_filter(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display an error message")
+public void the_system_should_display_an_error_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user searches for a medicine from test data marked as out of stock' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user searches for a medicine from test data marked as out of stock")
+public void user_searches_for_a_medicine_from_test_data_marked_as_out_of_stock() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user applies the {string} filter")
+public void user_applies_the_filter(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display an error message")
+public void the_system_should_display_an_error_message() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user searches for a medicine from test data marked as out of stock(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/4_InvalidMedicineSearch.feature:15)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:07 IST" duration-ms="416" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search with valid  medicine name"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Medicine Search Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'the user enters valid medicine name in the search box' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters valid medicine name in the search box")
+public void the_user_enters_valid_medicine_name_in_the_search_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display medicine name")
+public void the_system_should_display_medicine_name() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'the user enters valid medicine name in the search box' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters valid medicine name in the search box")
+public void the_user_enters_valid_medicine_name_in_the_search_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the system should display medicine name")
+public void the_system_should_display_medicine_name() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.the user enters valid medicine name in the search box(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/5_ValidMedicineSearch.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:08 IST" duration-ms="143" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -62,14 +443,620 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA["Buy Medicines flow"]]>
+                <![CDATA["Medicine Search Functionality"]]>
               </value>
             </param>
           </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user adds the product to cart and increases quantity by 2' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user adds the product to cart and increases quantity by {int}")
+public void user_adds_the_product_to_cart_and_increases_quantity_by(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks on View Cart button after adding products")
+public void user_clicks_on_view_cart_button_after_adding_products() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see the My Cart page")
+public void user_should_see_the_my_cart_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user adds the product to cart and increases quantity by 2' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user adds the product to cart and increases quantity by {int}")
+public void user_adds_the_product_to_cart_and_increases_quantity_by(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks on View Cart button after adding products")
+public void user_clicks_on_view_cart_button_after_adding_products() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see the My Cart page")
+public void user_should_see_the_my_cart_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user adds the product to cart and increases quantity by 2(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/5_ValidMedicineSearch.feature:11)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-11T10:40:04 IST" name="tearDownClass" finished-at="2025-09-11T10:40:05 IST" duration-ms="1678" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:18 IST" duration-ms="10374" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["User enters invalid text for searching area"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Invalid address management"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //span[contains(@class,'CartAddress_actionBtn__') and text()='Change'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61080}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61080/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9af6af510b32a99be2080f0e348014c4]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[contains(@class,'CartAddress_actionBtn__') and text()='Change'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61080}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61080/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9af6af510b32a99be2080f0e348014c4
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.pages.AddressPage.clickChangeAddress(AddressPage.java:47)
+at com.stepDefinition.AddressInvalidStep.user_clicks_on_change(AddressInvalidStep.java:18)
+at ✽.user clicks on change(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/6_AddressInvalid.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:28 IST" duration-ms="10243" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["User unable to save flat number"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Invalid address management"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //span[contains(@class,'CartAddress_actionBtn__') and text()='Change'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61080}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61080/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9af6af510b32a99be2080f0e348014c4]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[contains(@class,'CartAddress_actionBtn__') and text()='Change'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61080}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61080/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9af6af510b32a99be2080f0e348014c4
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.pages.AddressPage.clickChangeAddress(AddressPage.java:47)
+at com.stepDefinition.AddressInvalidStep.user_clicks_on_change(AddressInvalidStep.java:18)
+at ✽.user clicks on change(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/6_AddressInvalid.feature:10)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:38 IST" duration-ms="10199" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["User able to save address as part"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Invalid address management"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //span[contains(@class,'CartAddress_actionBtn__') and text()='Change'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61080}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61080/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9af6af510b32a99be2080f0e348014c4]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[contains(@class,'CartAddress_actionBtn__') and text()='Change'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61080}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61080/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9af6af510b32a99be2080f0e348014c4
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.pages.AddressPage.clickChangeAddress(AddressPage.java:47)
+at com.stepDefinition.AddressInvalidStep.user_clicks_on_change(AddressInvalidStep.java:18)
+at ✽.user clicks on change(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/6_AddressInvalid.feature:17)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:38 IST" duration-ms="80" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["user provides address for delivering the products using valid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Invalid address management"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user clicks on change in my cart' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks on change in my cart")
+public void user_clicks_on_change_in_my_cart() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user see the deliverto and click add new address")
+public void user_see_the_deliverto_and_click_add_new_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user selects the address by typing in the textarea")
+public void user_selects_the_address_by_typing_in_the_textarea() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters house number and and click save and next")
+public void user_enters_house_number_and_and_click_save_and_next() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters recipient and click save address")
+public void user_enters_recipient_and_click_save_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user clicks on change in my cart' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks on change in my cart")
+public void user_clicks_on_change_in_my_cart() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user see the deliverto and click add new address")
+public void user_see_the_deliverto_and_click_add_new_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user selects the address by typing in the textarea")
+public void user_selects_the_address_by_typing_in_the_textarea() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters house number and and click save and next")
+public void user_enters_house_number_and_and_click_save_and_next() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters recipient and click save address")
+public void user_enters_recipient_and_click_save_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user clicks on change in my cart(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/6_AddressInvalid.feature:27)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:39 IST" duration-ms="46" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["user provides address for delivering the products using valid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Address Management"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user clicks on change in my cart' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks on change in my cart")
+public void user_clicks_on_change_in_my_cart() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user see the deliverto and click add new address")
+public void user_see_the_deliverto_and_click_add_new_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user selects the address by typing in the textarea")
+public void user_selects_the_address_by_typing_in_the_textarea() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters house number and and click save and next")
+public void user_enters_house_number_and_and_click_save_and_next() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters recipient and click save address")
+public void user_enters_recipient_and_click_save_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user clicks on change in my cart' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks on change in my cart")
+public void user_clicks_on_change_in_my_cart() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user see the deliverto and click add new address")
+public void user_see_the_deliverto_and_click_add_new_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user selects the address by typing in the textarea")
+public void user_selects_the_address_by_typing_in_the_textarea() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters house number and and click save and next")
+public void user_enters_house_number_and_and_click_save_and_next() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enters recipient and click save address")
+public void user_enters_recipient_and_click_save_address() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user clicks on change in my cart(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/6_ValidAddress.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:39 IST" duration-ms="71" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verification of entering invalid inputs prevents profile addition"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Addition of new Profile"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user clicks first proceed button' and 8 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks first proceed button")
+public void user_clicks_first_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks Second proceed button")
+public void user_clicks_second_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks skip savings")
+public void user_clicks_skip_savings() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see the upload prescription tab")
+public void user_should_see_the_upload_prescription_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user clicks Add patient button")
+public void user_clicks_add_patient_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the invalid first name as {string}")
+public void the_user_enters_the_invalid_first_name_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the invalid dob as {string}")
+public void the_user_enters_the_invalid_dob_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the invalid email as {string}")
+public void the_user_enters_the_invalid_email_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user clicks first proceed button' and 8 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks first proceed button")
+public void user_clicks_first_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks Second proceed button")
+public void user_clicks_second_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks skip savings")
+public void user_clicks_skip_savings() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see the upload prescription tab")
+public void user_should_see_the_upload_prescription_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user clicks Add patient button")
+public void user_clicks_add_patient_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the invalid first name as {string}")
+public void the_user_enters_the_invalid_first_name_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the invalid dob as {string}")
+public void the_user_enters_the_invalid_dob_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the invalid email as {string}")
+public void the_user_enters_the_invalid_email_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user clicks first proceed button(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/7_PatientForm.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:39 IST" duration-ms="36" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verification of successful profile addition with all valid inputs"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Addition of new Profile"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'the user enters the first name as "<firstname>"' and 6 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters the first name as {string}")
+public void the_user_enters_the_first_name_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the last name as {string}")
+public void the_user_enters_the_last_name_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the dob as {string}")
+public void the_user_enters_the_dob_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user choose the gender")
+public void the_user_choose_the_gender() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user choose the relation")
+public void the_user_choose_the_relation() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user clicks on save and confirm button")
+public void the_user_clicks_on_save_and_confirm_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the new patient is added successfully")
+public void the_new_patient_is_added_successfully() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'the user enters the first name as "<firstname>"' and 6 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enters the first name as {string}")
+public void the_user_enters_the_first_name_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the last name as {string}")
+public void the_user_enters_the_last_name_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enters the dob as {string}")
+public void the_user_enters_the_dob_as(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user choose the gender")
+public void the_user_choose_the_gender() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user choose the relation")
+public void the_user_choose_the_relation() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user clicks on save and confirm button")
+public void the_user_clicks_on_save_and_confirm_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the new patient is added successfully")
+public void the_new_patient_is_added_successfully() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.the user enters the first name as "<firstname>"(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/7_PatientForm.feature:18)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-09-13T18:05:39 IST" duration-ms="43" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verification of checkout proceeds to payment tab"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Checkout Process"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user clicks first proceed button' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks first proceed button")
+public void user_clicks_first_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks second proceed button")
+public void user_clicks_second_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see the payments tab")
+public void user_should_see_the_payments_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user clicks first proceed button' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("user clicks first proceed button")
+public void user_clicks_first_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks second proceed button")
+public void user_clicks_second_proceed_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should see the payments tab")
+public void user_should_see_the_payments_tab() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user clicks first proceed button(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/8_Checkout.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@247bddad]" started-at="2025-09-13T18:05:39 IST" name="tearDownClass" finished-at="2025-09-13T18:05:39 IST" duration-ms="640" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

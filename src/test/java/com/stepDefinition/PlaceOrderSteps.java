@@ -1,4 +1,4 @@
-package com.stepDefinition;
+/*package com.stepDefinition;
 
 import io.cucumber.java.en.*;
 
@@ -17,11 +17,11 @@ import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.objectRepository.Locators;
-import com.pages.AddressDetails;
+import com.pages.AddressPage;
 import com.pages.BuyMedicinePage;
 import com.pages.PaymentPage;
 import com.pages.PrescriptionPage;
-import com.pages.ViewCartPage;
+
 import com.parameters.ExcelReader;
 import com.setup.PropertyReader;
 import com.setup.Reporter;
@@ -30,8 +30,8 @@ import com.stepDefinition.Hooks;
 public class PlaceOrderSteps {
 
     BuyMedicinePage buyMedicinePage = Hooks.buymedicinePage;
-    ViewCartPage viewCartPage = Hooks.viewCartPage;
-    AddressDetails addressDetails=Hooks.addressDetails;
+   
+   
     PrescriptionPage prescriptionpage=Hooks.prescriptionpage;
     PaymentPage paymentpage=Hooks.paymentPage;
 
@@ -42,65 +42,11 @@ public class PlaceOrderSteps {
     
     
 
-    @When("user clicks on Buy Medicines tab")
-    public void user_clicks_on_buy_medicines_tab() {
-        buyMedicinePage.clickBuyMedicinesTab();
-    }
+   
 
-    @Then("user should see Buy Medicines and Essentials page")
-    public void user_should_see_buy_medicines_and_essentials_page() {
-        boolean result = buyMedicinePage.validateBuyMedicinesTitle();
-        if (result) {
-            Reporter.generateReport(driver, extTest, Status.PASS, "Buy Medicines page loaded successfully");
-        } else {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Buy Medicines page not loaded");
-        }
-        Assert.assertTrue(result, "Buy Medicines page not loaded");
-    }
+    
 
-    @When("user searches for medicine {string}")
-    public void user_searches_for_medicine(String medicine) {
-        buyMedicinePage.searchMedicine(medicine);
-    }
-
-    @And("user applies in-stock and brand filters")
-    public void user_applies_in_stock_and_brand_filters() {
-        buyMedicinePage.applyFilters();
-    }
-
-    @Then("medicine {string} should be available")
-    public void medicine_should_be_available(String medicine) {
-        boolean result = buyMedicinePage.validateProductAvailability();
-        if (result) {
-            Reporter.generateReport(driver, extTest, Status.PASS, "Medicine available: " + medicine);
-        } else {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Medicine not available: " + medicine);
-        }
-        Assert.assertTrue(result, "Product not available: " + medicine);
-    }
-
-    @And("user adds the product to cart and increases quantity by {int}")
-    public void user_adds_the_product_to_cart_and_increases_quantity_by(Integer times) {
-        buyMedicinePage.addProductToCart(times);
-    }
-
-    @And("user clicks on View Cart button")
-    public void user_clicks_on_view_cart_button() {
-        buyMedicinePage.clickViewCart();
-    }
-
-    @Then("user should see the My cart page")
-    public void user_should_see_the_my_cart_page() {
-        boolean result = viewCartPage.validateMyCartPage();
-        if (result) {
-            Reporter.generateReport(driver, extTest, Status.PASS, "My Cart page is visible");
-        } else {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "My Cart page not visible");
-        }
-        Assert.assertTrue(result, "My Cart page not visible");
-    }
-
-    @Then("user clicks on change address")
+     @Then("user clicks on change address")
     public void user_clicks_on_change_address() {
         viewCartPage.clickChangeAddress();
     }
@@ -121,7 +67,15 @@ public class PlaceOrderSteps {
         }
         Assert.assertTrue(result, "Deliver To tab not visible");
     }
-
+    
+    
+    @Then("error message {string} should be displayed for invalid pincode")
+    public void error_message_should_be_displayed_for_invalid_pincode(String expectedMessage) {
+        String actualMessage = addressDetails.getInvalidPincodeErrorMessage();
+        Assert.assertEquals(actualMessage, expectedMessage,
+                "Mismatch in error message for invalid pincode.");
+        Reporter.generateReport(driver, extTest, Status.PASS, "Validated error message: " + actualMessage);
+    }
     @Then("user enter the valid pincode and select the pincode")
     public void user_enter_the_valid_pincode_and_select_the_pincode() {
         try {
@@ -162,11 +116,13 @@ public class PlaceOrderSteps {
 
     }
 
-    @And("user enter the house number and clicks save and next")
-    public void user_enter_the_house_number_and_clicks_save_and_next() {
-        addressDetails.enterHouseNumberAndSaveNext("123");
-    }
 
+    @Then("error message {string} should be displayed")
+    public void error_message_should_be_displayed1(String expectedMessage) {
+        String actualMessage =  prescriptionpage.getFirstNameErrorMessage();
+        Assert.assertEquals(actualMessage, expectedMessage, "First name error message mismatch!");
+    }
+   
     @And("user fill the recipient details and save address")
     public void user_fill_the_recipient_details_and_save_address() {
         String recipientName = "John Doe";
@@ -203,7 +159,7 @@ public class PlaceOrderSteps {
         prescriptionpage.fillPatientForm();
     }
 
-   
+  
    
     
     
@@ -244,7 +200,7 @@ public class PlaceOrderSteps {
             throw e;
         }
     }
-
+*/
 
 
 
@@ -253,9 +209,5 @@ public class PlaceOrderSteps {
 
     
     
-   
-   
-    
-}
 
 

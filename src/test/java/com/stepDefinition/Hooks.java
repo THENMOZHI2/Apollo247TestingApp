@@ -13,12 +13,15 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.setup.Base;
-import com.pages.AddressDetails;
+
+import com.pages.AddressPage;
 import com.pages.BuyMedicinePage;
+
 import com.pages.LoginPage;
+import com.pages.MedicineSearchPage;
 import com.pages.PaymentPage;
 import com.pages.PrescriptionPage;
-import com.pages.ViewCartPage;
+import com.pages.ProfilePage;
 
 import io.cucumber.java.*;
 
@@ -31,10 +34,12 @@ public class Hooks extends Base {
 
     public static BuyMedicinePage buymedicinePage;
     public static LoginPage loginPage;
-    public static ViewCartPage viewCartPage;
-    public static AddressDetails addressDetails;
+   
+    public static AddressPage addressPage;
     public static PrescriptionPage prescriptionpage;
     public static PaymentPage paymentPage;
+    public static MedicineSearchPage medicineSearchPage;
+    public static ProfilePage profilepage;
 
     public static int currentrow = 0;
 
@@ -65,10 +70,12 @@ public class Hooks extends Base {
         // ✅ Initialize page objects
         buymedicinePage = new BuyMedicinePage(driver, extTest);
         loginPage = new LoginPage(driver, extTest);
-        viewCartPage = new ViewCartPage(driver, extTest);
-        addressDetails = new AddressDetails(driver, extTest);
+       
+        addressPage= new AddressPage(driver, extTest);
         prescriptionpage = new PrescriptionPage(driver, extTest);
         paymentPage = new PaymentPage(driver, extTest);
+        medicineSearchPage = new MedicineSearchPage(driver,extTest);
+        profilepage=new ProfilePage(driver,extTest);
     }
 
     @After

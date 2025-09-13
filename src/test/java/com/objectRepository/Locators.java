@@ -60,7 +60,7 @@ public class Locators {
 	    public static By increaseProductQuantity = By.xpath("(//span[@role='button' and @aria-label='Increase button'])[1]");
 
 	    // View cart button
-	    public static By viewCartButton = By.xpath("//button[@aria-label='Button']//span[text()='View Cart']");
+	    //public static By viewCartButton = By.xpath("//button[@aria-label='Button']//span[text()='View Cart']");
 	    public static By myCartPageTitle = By.xpath("//li[contains(@class,'CartFlowBreadcrumbs_active') and normalize-space()='MY CART']");
 
 
@@ -167,6 +167,8 @@ public class Locators {
 
 	    // 16. Payments tab title validation
 	    public static By paymentsTab = By.xpath("//div[text()='Payments']");
+
+		public static By suggestedArea;
 
 
 

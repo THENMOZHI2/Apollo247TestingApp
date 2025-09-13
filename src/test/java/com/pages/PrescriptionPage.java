@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -176,6 +177,135 @@ public class PrescriptionPage {
             throw e;
         }
     }
+    public void fillPatientFormWithInvalidFirstName() {
+        try {
+            WebElement firstName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("firstName")));
+            firstName.clear();
+            firstName.sendKeys("1234Invalid"); // invalid first name
+
+            WebElement lastName = driver.findElement(By.id("lastName"));
+            lastName.sendKeys("ValidLastName");
+
+            WebElement dob = driver.findElement(By.id("dob"));
+            dob.sendKeys("01-06-2004");
+
+            WebElement saveBtn = driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
+            saveBtn.click();
+
+            Reporter.generateReport(driver, extTest, Status.PASS, "Patient form filled with invalid first name");
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to fill patient form with invalid first name: " + e.getMessage());
+        }
+    }
+
+    public String getFirstNameErrorMessage() {
+        try {
+            WebElement errorMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("span.NewAddressForm_errorClass__sXKwt"))); // adjust selector if needed
+            return errorMsg.getText().trim();
+        } catch (Exception e) {
+            Assert.fail("Failed to fetch first name error message: " + e.getMessage());
+            return null;
+        }
+    }
+    public void fillPatientFormWithInvalidLastName() {
+        try {
+            WebElement firstName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("firstName")));
+            firstName.sendKeys("ValidFirst");
+
+            WebElement lastName = driver.findElement(By.id("lastName"));
+            lastName.clear();
+            lastName.sendKeys("1234Invalid"); // invalid last name
+
+            WebElement dob = driver.findElement(By.id("dob"));
+            dob.sendKeys("01-06-2004");
+
+            WebElement saveBtn = driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
+            saveBtn.click();
+
+            Reporter.generateReport(driver, extTest, Status.PASS, "Patient form filled with invalid last name");
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to fill patient form with invalid last name: " + e.getMessage());
+        }
+    }
+
+    public String getLastNameErrorMessage() {
+        try {
+            WebElement errorMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("span.NewAddressForm_errorClass__sXKwt"))); // adjust selector if needed
+            return errorMsg.getText().trim();
+        } catch (Exception e) {
+            Assert.fail("Failed to fetch last name error message: " + e.getMessage());
+            return null;
+        }
+    }
+    public void fillPatientFormWithFutureDOB() {
+        try {
+            WebElement firstName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("firstName")));
+            firstName.sendKeys("ValidFirst");
+
+            WebElement lastName = driver.findElement(By.id("lastName"));
+            lastName.sendKeys("ValidLast");
+
+            WebElement dob = driver.findElement(By.id("dob"));
+            dob.clear();
+            dob.sendKeys("01-01-2050"); // future date of birth
+
+            WebElement saveBtn = driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
+            saveBtn.click();
+
+            Reporter.generateReport(driver, extTest, Status.PASS, "Patient form filled with future DOB");
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to fill patient form with future DOB: " + e.getMessage());
+        }
+    }
+
+    public String getDOBErrorMessage() {
+        try {
+            WebElement errorMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("span.NewAddressForm_errorClass__sXKwt"))); // adjust selector if needed
+            return errorMsg.getText().trim();
+        } catch (Exception e) {
+            Assert.fail("Failed to fetch DOB error message: " + e.getMessage());
+            return null;
+        }
+    }
+    public void fillPatientFormWithInvalidEmail() {
+        try {
+            WebElement firstName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("firstName")));
+            firstName.sendKeys("ValidFirst");
+
+            WebElement lastName = driver.findElement(By.id("lastName"));
+            lastName.sendKeys("ValidLast");
+
+            WebElement dob = driver.findElement(By.id("dob"));
+            dob.sendKeys("01-06-2004");
+
+            WebElement email = driver.findElement(By.id("email"));
+            email.clear();
+            email.sendKeys("invalid@@email"); // invalid email
+
+            WebElement saveBtn = driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
+            saveBtn.click();
+
+            Reporter.generateReport(driver, extTest, Status.PASS, "Patient form filled with invalid email");
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to fill patient form with invalid email: " + e.getMessage());
+        }
+    }
+
+    public String getEmailErrorMessage() {
+        try {
+            WebElement errorMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("span.NewAddressForm_errorClass__sXKwt"))); // adjust selector if needed
+            return errorMsg.getText().trim();
+        } catch (Exception e) {
+            Assert.fail("Failed to fetch email error message: " + e.getMessage());
+            return null;
+        }
+    }
+
+
 
     
     
