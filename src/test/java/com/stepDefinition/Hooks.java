@@ -34,14 +34,15 @@ public class Hooks extends Base {
 
     public static BuyMedicinePage buymedicinePage;
     public static LoginPage loginPage;
+    public static PaymentPage paymentpage;
    
     public static AddressPage addressPage;
-    public static PrescriptionPage prescriptionpage;
-    public static PaymentPage paymentPage;
+  
+ 
     public static MedicineSearchPage medicineSearchPage;
     public static ProfilePage profilepage;
 
-    public static int currentrow = 0;
+    public static int currentrow = 0; 
 
 	public static int firstrow;
 
@@ -72,8 +73,8 @@ public class Hooks extends Base {
         loginPage = new LoginPage(driver, extTest);
        
         addressPage= new AddressPage(driver, extTest);
-        prescriptionpage = new PrescriptionPage(driver, extTest);
-        paymentPage = new PaymentPage(driver, extTest);
+        // Page objects
+        paymentpage = new PaymentPage(driver,extTest);
         medicineSearchPage = new MedicineSearchPage(driver,extTest);
         profilepage=new ProfilePage(driver,extTest);
     }

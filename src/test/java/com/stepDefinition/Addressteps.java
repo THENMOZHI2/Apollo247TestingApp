@@ -33,7 +33,7 @@ public class Addressteps {
     // ----------- Flat Number Validation -----------
     @When("user enters the valid pincode from text data")
     public void user_enters_the_valid_pincode_from_text_data() {
-    	addressPage.enterValidPincode("600003", Hooks.extTest);
+    	addressPage.enterValidPincode("600006", Hooks.extTest);
 
     }
 

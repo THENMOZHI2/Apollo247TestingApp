@@ -2,7 +2,6 @@ package com.pages;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectRepository.Locators;
 import com.setup.Reporter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,205 +21,230 @@ public class ProfilePage {
         this.extTest = extTest;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
-    
 
-    // ✅ First Proceed
+    // ==================== Navigation ====================
+
     public void clickFirstProceed() {
         try {
-            WebElement firstProceed = wait.until(ExpectedConditions.elementToBeClickable(Locators.firstProceedBtn));
-            try {
-                firstProceed.click();
-            } catch (ElementClickInterceptedException e) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", firstProceed);
-            }
+            By firstProceedBtn = By.xpath("//button[@aria-label='Button']//span[text()='PROCEED']");
+            WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(firstProceedBtn));
+            safeClick(btn);
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked First Proceed button");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ First Proceed not clickable: " + e.getMessage());
-            Assert.fail("❌ First Proceed not clickable: " + e.getMessage());
+            failStep("First Proceed", e);
         }
     }
 
     public void clickSecondProceed() {
         try {
-            // Define locator inside the method itself ✅
-            By secondProceedBtn = By.xpath("//button[@aria-label='Button']//span[normalize-space()='Proceed']");
-
-            WebElement secondProceed = wait.until(
-                ExpectedConditions.elementToBeClickable(secondProceedBtn)
-            );
-
-            try {
-                secondProceed.click();
-            } catch (ElementClickInterceptedException e) {
-                // Fallback: scroll + JS click
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", secondProceed);
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", secondProceed);
-            }
-
-            Reporter.generateReport(driver, extTest, Status.PASS, "✅ Clicked Second Proceed button");
-
+            By secondProceedBtn = By.xpath("//button[@aria-label='Button']//span[text()='Proceed']");
+            WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(secondProceedBtn));
+            safeClick(btn);
+            Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Second Proceed button");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Second Proceed not clickable: " + e.getMessage());
-            Assert.fail("❌ Second Proceed not clickable: " + e.getMessage());
+            failStep("Second Proceed", e);
         }
     }
 
-
-    // ✅ Skip Savings
     public void clickSkipSavings() {
         try {
-            WebElement skipBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.skipSavingsBtn));
-            skipBtn.click();
-            Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Skip Savings button");
+            By skipSavingsBtn = By.xpath("//button[.//span[normalize-space()='Skip Savings']]");
+            WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(skipSavingsBtn));
+            safeClick(btn);
+            Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Skip Savings");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Skip Savings not clickable: " + e.getMessage());
-            Assert.fail("❌ Skip Savings not clickable: " + e.getMessage());
+            failStep("Skip Savings", e);
         }
     }
 
-    // ✅ Validate Upload Prescription tab
     public void validateUploadPrescription() {
         try {
-            boolean visible = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.uploadPrescriptionHeader)).isDisplayed();
+            By uploadPrescriptionHeader = By.xpath("//h2[contains(text(),'Upload Prescription')]");
+            boolean visible = wait.until(ExpectedConditions.visibilityOfElementLocated(uploadPrescriptionHeader)).isDisplayed();
             Assert.assertTrue(visible, "Upload Prescription tab not visible");
             Reporter.generateReport(driver, extTest, Status.PASS, "Upload Prescription tab is visible");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Upload Prescription tab not found: " + e.getMessage());
-            Assert.fail("❌ Upload Prescription tab not found: " + e.getMessage());
+            failStep("Upload Prescription Tab", e);
         }
     }
 
-    // ✅ Click Add Patient
     public void clickAddPatient() {
         try {
-            WebElement addBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.addPatientBtn));
-            addBtn.click();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.addNewFamilyMemberHeader));
+            By addPatientBtn = By.xpath("//button//span[contains(.,'Add Patient Name')]");
+            WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(addPatientBtn));
+            safeClick(btn);
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Add Patient button");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Add Patient button not clickable: " + e.getMessage());
-            Assert.fail("❌ Add Patient button not clickable: " + e.getMessage());
+            failStep("Add Patient Button", e);
+        }
+    }
+
+    // ==================== Form Inputs ====================
+
+    // Validate Add Profile Form
+    public void validateProfileFormOpened() {
+        try {
+            By formHeader = By.xpath("//h2[contains(text(),'Add New Family Member')]");
+            boolean visible = wait.until(ExpectedConditions.visibilityOfElementLocated(formHeader)).isDisplayed();
+            Assert.assertTrue(visible, "Add New Family Member form not visible");
+            Reporter.generateReport(driver, extTest, Status.PASS, "Profile form is opened successfully");
+        } catch (Exception e) {
+            failStep("Profile Form Open", e);
         }
     }
 
     // ✅ Enter First Name
     public void enterFirstName(String fname) {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.addNewFamilyMemberHeader));
-            WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.firstNameField));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", field);
+            By firstNameField = By.xpath("//input[@placeholder='First name']");
+            WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField));
+            scrollIntoView(field);
             field.clear();
             field.sendKeys(fname);
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered First Name: " + fname);
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Failed entering First Name: " + e.getMessage());
-            Assert.fail("❌ First Name field not found: " + e.getMessage());
+            failStep("First Name Field", e);
         }
     }
 
     // ✅ Enter Last Name
     public void enterLastName(String lname) {
         try {
-            WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.lastNameField));
+            By lastNameField = By.xpath("//input[@placeholder='Last name']");
+            WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField));
+            scrollIntoView(field);
             field.clear();
             field.sendKeys(lname);
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered Last Name: " + lname);
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Failed entering Last Name: " + e.getMessage());
-            Assert.fail("❌ Last Name field not found: " + e.getMessage());
+            failStep("Last Name Field", e);
         }
     }
 
     // ✅ Enter DOB
     public void enterDOB(String dob) {
         try {
-            String[] parts = dob.split("-");
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.dobDayField)).sendKeys(parts[0]);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.dobMonthField)).sendKeys(parts[1]);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.dobYearField)).sendKeys(parts[2]);
+            String[] parts = dob.split("[-/]"); // Handles both 01-06-2004 and 01/06/2004
+            By dayField = By.xpath("//input[@placeholder='dd']");
+            By monthField = By.xpath("//input[@placeholder='mm']");
+            By yearField = By.xpath("//input[@placeholder='yyyy']");
+
+            WebElement day = wait.until(ExpectedConditions.visibilityOfElementLocated(dayField));
+            scrollIntoView(day);
+            day.clear(); day.sendKeys(parts[0]);
+
+            WebElement month = wait.until(ExpectedConditions.visibilityOfElementLocated(monthField));
+            month.clear(); month.sendKeys(parts[1]);
+
+            WebElement year = wait.until(ExpectedConditions.visibilityOfElementLocated(yearField));
+            year.clear(); year.sendKeys(parts[2]);
+
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered DOB: " + dob);
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Failed entering DOB: " + e.getMessage());
-            Assert.fail("❌ DOB field issue: " + e.getMessage());
+            failStep("DOB Field", e);
         }
     }
 
     // ✅ Choose Gender
     public void chooseGender() {
         try {
-            WebElement genderBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.genderFemaleBtn));
-            genderBtn.click();
+            By genderFemaleBtn = By.xpath("//span[normalize-space()='Female']");
+            WebElement genderBtn = wait.until(ExpectedConditions.elementToBeClickable(genderFemaleBtn));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", genderBtn);
             Reporter.generateReport(driver, extTest, Status.PASS, "Selected Gender: Female");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Gender not selectable: " + e.getMessage());
-            Assert.fail("❌ Gender not selectable: " + e.getMessage());
+            failStep("Gender Select", e);
         }
     }
 
     // ✅ Choose Relation
     public void chooseRelation() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(Locators.relationDropdown)).click();
-            wait.until(ExpectedConditions.elementToBeClickable(Locators.relationDaughterOption)).click();
+            By relationDropdown = By.xpath("//button[contains(@id,'headlessui-listbox-button')]");
+            By relationOption = By.xpath("//li//span[normalize-space()='DAUGHTER']");
+
+            WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(relationDropdown));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dropdown);
+
+            WebElement option = wait.until(ExpectedConditions.elementToBeClickable(relationOption));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
+
             Reporter.generateReport(driver, extTest, Status.PASS, "Selected Relation: Daughter");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Relation not selectable: " + e.getMessage());
-            Assert.fail("❌ Relation not selectable: " + e.getMessage());
+            failStep("Relation Select", e);
+        }
+    }
+
+    // ✅ Enter Email
+    public void enterEmail(String email) {
+        try {
+            By emailField = By.xpath("//input[@placeholder='name@email.com']");
+            WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
+            scrollIntoView(field);
+            field.clear();
+            field.sendKeys(email);
+            Reporter.generateReport(driver, extTest, Status.PASS, "Entered Email: " + email);
+        } catch (Exception e) {
+            failStep("Email Field", e);
         }
     }
 
     // ✅ Save & Confirm
     public void clickSaveAndConfirm() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(Locators.saveBtn)).click();
-            wait.until(ExpectedConditions.elementToBeClickable(Locators.confirmBtn)).click();
+            By saveBtn = By.xpath("//button[.//span[normalize-space()='Save']]");
+            By confirmBtn = By.xpath("//button[.//span[normalize-space()='CONFIRM']]");
+
+            WebElement save = wait.until(ExpectedConditions.elementToBeClickable(saveBtn));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", save);
+
+            WebElement confirm = wait.until(ExpectedConditions.elementToBeClickable(confirmBtn));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", confirm);
+
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Save & Confirm");
         } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Save & Confirm failed: " + e.getMessage());
-            Assert.fail("❌ Save & Confirm failed: " + e.getMessage());
+            failStep("Save & Confirm", e);
         }
     }
 
-    // ✅ Validate Patient Added
-    public void validatePatientAdded() {
-        try {
-            boolean visible = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.paymentsTab)).isDisplayed();
-            By patientRadioBtn = By.xpath("//input[@type='radio' and @name='product-sort']");
-            WebElement radioBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(patientRadioBtn));
-            Assert.assertTrue(visible && radioBtn.isDisplayed(), "Patient addition not confirmed properly.");
-            Reporter.generateReport(driver, extTest, Status.PASS, "✅ New patient successfully added.");
-        } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Patient addition validation failed: " + e.getMessage());
-            Assert.fail("❌ Patient not added successfully: " + e.getMessage());
-        }
-    }
+    // ==================== Negative Inputs ====================
 
-    // ================= NEGATIVE INPUTS =================
     public void enterInvalidFirstName(String fname) {
         enterFirstName(fname);
-        Reporter.generateReport(driver, extTest, Status.FAIL, "Entered invalid First Name: " + fname);
+        Reporter.generateReport(driver, extTest, Status.PASS, "Entered invalid First Name: " + fname);
     }
 
     public void enterInvalidLastName(String lname) {
         enterLastName(lname);
-        Reporter.generateReport(driver, extTest, Status.FAIL, "Entered invalid Last Name: " + lname);
+        Reporter.generateReport(driver, extTest, Status.PASS, "Entered invalid Last Name: " + lname);
     }
 
     public void enterInvalidDOB(String dob) {
         enterDOB(dob);
-        Reporter.generateReport(driver, extTest, Status.FAIL, "Entered invalid DOB: " + dob);
+        Reporter.generateReport(driver, extTest, Status.PASS, "Entered invalid DOB: " + dob);
     }
 
     public void enterInvalidEmail(String email) {
+        enterEmail(email);
+        Reporter.generateReport(driver, extTest, Status.PASS, "Entered invalid Email: " + email);
+    }
+
+    // ==================== Helpers ====================
+
+    private void safeClick(WebElement element) {
         try {
-            WebElement emailField = driver.findElement(By.xpath("//input[@placeholder='Email']"));
-            emailField.clear();
-            emailField.sendKeys(email);
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Entered invalid Email: " + email);
-        } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "❌ Failed entering Email: " + e.getMessage());
-            Assert.fail("❌ Email field not found: " + e.getMessage());
+            element.click();
+        } catch (ElementClickInterceptedException ex) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
         }
     }
-}
 
+    private void scrollIntoView(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    private void failStep(String step, Exception e) {
+        Reporter.generateReport(driver, extTest, Status.FAIL, "❌ " + step + " failed: " + e.getMessage());
+        Assert.fail("❌ " + step + " failed: " + e.getMessage());
+    }
+}

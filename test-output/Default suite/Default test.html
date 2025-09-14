@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>12/3/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>15/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Sep 14 04:19:01 IST 2025</td>
+<td>Started on:</td><td>Sun Sep 14 12:44:07 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>141 seconds (141857 ms)</td>
+<tr><td>Total time:</td><td>183 seconds (183716 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,93 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verification of successful profile addition with all valid inputs", "Addition of new Profile"</td>
-<td><div><pre>java.lang.AssertionError: ❌ First Name field not found: Expected condition failed: waiting for visibility of element located by By.xpath: //h2[contains(text(),&apos;Add New Family Member&apos;)] (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61573}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61573/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: df394651cb453037eec7f0c0e3d72792
-	at org.testng.Assert.fail(Assert.java:111)
-	at com.pages.ProfilePage.enterFirstName(ProfilePage.java:117)
-	at com.stepDefinition.ProfileStep.the_user_enters_the_first_name_as(ProfileStep.java:42)
-	at ✽.the user enters the first name as &quot;&lt;firstname&gt;&quot;(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/7_PatientForm.feature:18)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1843794118", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1843794118'><pre>java.lang.AssertionError: ❌ First Name field not found: Expected condition failed: waiting for visibility of element located by By.xpath: //h2[contains(text(),&apos;Add New Family Member&apos;)] (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61573}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61573/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: df394651cb453037eec7f0c0e3d72792
-	at org.testng.Assert.fail(Assert.java:111)
-	at com.pages.ProfilePage.enterFirstName(ProfilePage.java:117)
-	at com.stepDefinition.ProfileStep.the_user_enters_the_first_name_as(ProfileStep.java:42)
-	at ✽.the user enters the first name as &quot;&lt;firstname&gt;&quot;(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/7_PatientForm.feature:18)
-</pre></div></td>
-<td>15</td>
-<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verification of entering invalid inputs prevents profile addition", "Addition of new Profile"</td>
-<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user clicks Second proceed button&apos; is undefined.
-You can implement this step using the snippet(s) below:
-
-@When(&quot;user clicks Second proceed button&quot;)
-public void user_clicks_second_proceed_button() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at ✽.user clicks Second proceed button(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/7_PatientForm.feature:5)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2133629275", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2133629275'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user clicks Second proceed button&apos; is undefined.
-You can implement this step using the snippet(s) below:
-
-@When(&quot;user clicks Second proceed button&quot;)
-public void user_clicks_second_proceed_button() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at ✽.user clicks Second proceed button(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/7_PatientForm.feature:5)
-</pre></div></td>
-<td>0</td>
-<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verification of checkout proceeds to payment tab", "Checkout Process"</td>
-<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user should see the payments tab&apos; is undefined.
-You can implement this step using the snippet(s) below:
-
-@Then(&quot;user should see the payments tab&quot;)
-public void user_should_see_the_payments_tab() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at ✽.user should see the payments tab(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/8_Checkout.feature:6)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1128856117", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1128856117'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;user should see the payments tab&apos; is undefined.
-You can implement this step using the snippet(s) below:
-
-@Then(&quot;user should see the payments tab&quot;)
-public void user_should_see_the_payments_tab() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at ✽.user should see the payments tab(file:///C:/Users/User/eclipse-workspace/Apollo247TestingApp/src/test/resources/Features/8_Checkout.feature:6)
-</pre></div></td>
-<td>1</td>
-<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -163,21 +76,6 @@ public void user_should_see_the_payments_tab() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search with a very long medicine name", "Medicine Search Functionality"</td>
-<td></td>
-<td>17</td>
-<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login successfully", "Login"</td>
-<td></td>
-<td>22</td>
-<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search for a medicine that is out of stock", "Medicine Search Functionality"</td>
-<td></td>
-<td>17</td>
-<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
-<tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User enters invalid text for searching area", "Invalid address management"</td>
 <td></td>
 <td>2</td>
@@ -185,12 +83,32 @@ public void user_should_see_the_payments_tab() {
 <tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Buy Medicines tab opens successfully", "Buy Medicines Tab"</td>
 <td></td>
-<td>4</td>
+<td>8</td>
 <td>com.runner.TestRunnerTestNG@247bddad</td></tr>
 <tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User is able to save address with invalid recipient name", "Invalid address management"</td>
 <td></td>
-<td>1</td>
+<td>2</td>
+<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "user add items in my cart", "Medicine Search Functionality"</td>
+<td></td>
+<td>4</td>
+<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verification of entering invalid inputs prevents profile addition", "Addition of new Profile"</td>
+<td></td>
+<td>6</td>
+<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verification of successful profile addition with all valid inputs", "Addition of new Profile"</td>
+<td></td>
+<td>3</td>
+<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verification of checkout proceeds to payment tab", "Checkout Process"</td>
+<td></td>
+<td>3</td>
 <td>com.runner.TestRunnerTestNG@247bddad</td></tr>
 <tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User unable to save flat number", "Invalid address management"</td>
@@ -198,27 +116,37 @@ public void user_should_see_the_payments_tab() {
 <td>4</td>
 <td>com.runner.TestRunnerTestNG@247bddad</td></tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search with invalid characters", "Medicine Search Functionality"</td>
-<td></td>
-<td>16</td>
-<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search and add medicine to cart with filters", "Medicine Search Functionality"</td>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Launching the browser successfully", "Launching the browser"</td>
 <td></td>
 <td>4</td>
 <td>com.runner.TestRunnerTestNG@247bddad</td></tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Launching the browser successfully", "Launching the browser"</td>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search with invalid characters", "Medicine Search Functionality"</td>
 <td></td>
-<td>3</td>
+<td>17</td>
 <td>com.runner.TestRunnerTestNG@247bddad</td></tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "user add items in my cart", "Medicine Search Functionality"</td>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search and add medicine to cart with filters", "Medicine Search Functionality"</td>
 <td></td>
 <td>5</td>
 <td>com.runner.TestRunnerTestNG@247bddad</td></tr>
 <tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search with valid  medicine name", "Medicine Search Functionality"</td>
+<td></td>
+<td>17</td>
+<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login successfully", "Login"</td>
+<td></td>
+<td>63</td>
+<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search for a medicine that is out of stock", "Medicine Search Functionality"</td>
+<td></td>
+<td>17</td>
+<td>com.runner.TestRunnerTestNG@247bddad</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search with a very long medicine name", "Medicine Search Functionality"</td>
 <td></td>
 <td>17</td>
 <td>com.runner.TestRunnerTestNG@247bddad</td></tr>

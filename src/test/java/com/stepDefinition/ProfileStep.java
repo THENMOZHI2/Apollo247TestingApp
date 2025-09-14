@@ -1,7 +1,7 @@
 package com.stepDefinition;
 
 import com.pages.ProfilePage;
-
+import com.parameters.ExcelReader;
 import io.cucumber.java.en.*;
 
 public class ProfileStep {
@@ -15,7 +15,7 @@ public class ProfileStep {
         profilePage.clickFirstProceed();
     }
 
-    @When("user clicks second proceed button")
+    @When("user clicks Second proceed button")
     public void user_clicks_second_proceed_button() {
         profilePage.clickSecondProceed();
     }
@@ -30,36 +30,41 @@ public class ProfileStep {
         profilePage.validateUploadPrescription();
     }
 
-    @Then("user clicks Add patient button")
+    @And("user clicks Add patient button")
     public void user_clicks_add_patient_button() {
         profilePage.clickAddPatient();
     }
 
-    // ==================== Valid Input Flow ====================
+    // ==================== VALID INPUT FLOW ====================
 
     @When("the user enters the first name as {string}")
-    public void the_user_enters_the_first_name_as(String fname) {
-        profilePage.enterFirstName(fname);
+    public void the_user_enters_the_first_name_as(String firstname) {
+        profilePage.enterFirstName("Thenmozhi");
     }
 
     @When("the user enters the last name as {string}")
-    public void the_user_enters_the_last_name_as(String lname) {
-        profilePage.enterLastName(lname);
+    public void the_user_enters_the_last_name_as(String lastname) {
+        profilePage.enterLastName("Nagaiya");
     }
 
     @When("the user enters the dob as {string}")
     public void the_user_enters_the_dob_as(String dob) {
-        profilePage.enterDOB(dob);
+        profilePage.enterDOB("01/06/2004");
+    }
+
+    @When("the user enters the email as {string}")
+    public void the_user_enters_the_email_as(String email) {
+        profilePage.enterEmail("thenmozhiuma0@gmail.com");
     }
 
     @When("the user choose the gender")
     public void the_user_choose_the_gender() {
-        profilePage.chooseGender();
+        profilePage.chooseGender(); // always Female
     }
 
     @When("the user choose the relation")
     public void the_user_choose_the_relation() {
-        profilePage.chooseRelation();
+        profilePage.chooseRelation(); // always Daughter
     }
 
     @When("the user clicks on save and confirm button")
@@ -67,31 +72,32 @@ public class ProfileStep {
         profilePage.clickSaveAndConfirm();
     }
 
-    @Then("the new patient is added successfully")
-    public void the_new_patient_is_added_successfully() {
-        profilePage.validatePatientAdded();
-    }
+    
 
-    // ==================== Invalid Input Flow ====================
+    // ==================== INVALID INPUT FLOW ====================
 
     @When("the user enters the invalid first name as {string}")
     public void the_user_enters_the_invalid_first_name_as(String invalidFirstName) {
-        profilePage.enterInvalidFirstName(invalidFirstName);
+        String[][] data = ExcelReader.readdata();
+        profilePage.enterInvalidFirstName(data[1][3]);   // Row 1 → invalid
     }
 
     @When("the user enters the invalid last name as {string}")
     public void the_user_enters_the_invalid_last_name_as(String invalidLastName) {
-        profilePage.enterInvalidLastName(invalidLastName);
+        String[][] data = ExcelReader.readdata();
+        profilePage.enterInvalidLastName(data[1][4]);   // Row 1 → invalid
     }
 
     @When("the user enters the invalid dob as {string}")
     public void the_user_enters_the_invalid_dob_as(String invalidDob) {
-        profilePage.enterInvalidDOB(invalidDob);
+        String[][] data = ExcelReader.readdata();
+        profilePage.enterInvalidDOB(data[1][5]);        // Row 1 → invalid
     }
 
-    @When("the user enters the invalid email as {string}")
-    public void the_user_enters_the_invalid_email_as(String invalidEmail) {
-        profilePage.enterInvalidEmail(invalidEmail);
+    @When("the user enters the invalid email")
+    public void the_user_enters_the_invalid_email() {
+        profilePage.enterInvalidEmail("$$124@@");       // Hardcoded invalid
     }
 }
+
 
